@@ -1,4 +1,4 @@
-# Linear Regeression from scratch
+# Logistic Regeression from scratch
 import torch
 import matplotlib.pyplot as plt
 import os
@@ -36,7 +36,7 @@ def gradients(x,y,y_hat):
 print(f'Prediction before training: {forward(5):.4f}')
 
 lr = 0.1 # learning rate
-epochs = 10
+epochs = 100
 loss_val,acc_val = [],[]
 for epoch in range(epochs):
     y_hat = forward(X) # predictions
@@ -51,7 +51,7 @@ for epoch in range(epochs):
 
     # Zero gradients
     w.grad.zero_()
-    if epoch % 1 == 0:
+    if epoch % 10 == 0:
         loss_val.append(l.item())
         print(f'Epoch {epoch +1}: w = {w:.3f}, loss: {l:.8f}')
     
